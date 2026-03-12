@@ -1,10 +1,5 @@
 # log-anomaly-detector
 Python-based tool to detect suspicious activity in system logs — brute force, unauthorized access, and anomalous patterns.
-# 🔍 Log Anomaly Detector
-
-A Python-based security tool that analyzes system authentication logs
-to detect suspicious activity — including brute force attacks, 
-unauthorized access attempts, and unusual login patterns.
 
 ## 🎯 Why I Built This
 SOC analysts spend significant time manually reviewing logs.
