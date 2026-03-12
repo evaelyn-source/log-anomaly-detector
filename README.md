@@ -13,7 +13,7 @@ found in SSH auth logs.
 - Severity classification (HIGH / MEDIUM / LOW)
 
 ## 🚀 How to Run
-git clone (https://github.com/evaelyn-source/log-anomaly-detector)
+git clone https://github.com/evaelyn-source/log-anomaly-detector
 cd log-anomaly-detector
 python detector.py
 
