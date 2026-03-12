@@ -3,14 +3,12 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-# --- Config ---
-BRUTE_FORCE_THRESHOLD = 5   # failed logins before alert
+BRUTE_FORCE_THRESHOLD = 5
 LOG_FILE = "sample_logs/auth.log"
 
 def parse_log(filepath):
     failed_logins = defaultdict(list)
     successful_logins = []
-    suspicious_events = []
 
     pattern_failed = re.compile(
         r'(\w+\s+\d+\s[\d:]+).*Failed password for (?:invalid user )?(\w+) from ([\d.]+)'
@@ -27,7 +25,6 @@ def parse_log(filepath):
             if failed_match:
                 timestamp, user, ip = failed_match.groups()
                 failed_logins[ip].append({"user": user, "time": timestamp})
-
             elif success_match:
                 timestamp, user, ip = success_match.groups()
                 successful_logins.append({"user": user, "ip": ip, "time": timestamp})
@@ -61,23 +58,22 @@ def generate_report(alerts, successful_logins):
     with open("reports/report.json", "w") as f:
         json.dump(report, f, indent=2)
 
-    print(f"\n{'='*50}")
-    print("  LOG ANOMALY DETECTOR — REPORT")
-    print(f"{'='*50}")
-    print(f"  Alerts Found : {len(alerts)}")
+    print("\n" + "="*50)
+    print("  LOG ANOMALY DETECTOR - REPORT")
+    print("="*50)
+    print(f"  Alerts Found     : {len(alerts)}")
     print(f"  Successful Logins: {len(successful_logins)}")
-    print(f"\n  ALERTS:")
+    print("\n  ALERTS:")
     for alert in alerts:
-        print(f"\n  ⚠️  [{alert['severity']}] {alert['type']}")
+        print(f"\n  !! [{alert['severity']}] {alert['type']}")
         print(f"     IP Address : {alert['ip']}")
         print(f"     Attempts   : {alert['attempts']}")
         print(f"     Targeted   : {', '.join(alert['targeted_users'])}")
     print(f"\n  Full report saved to reports/report.json")
-    print(f"{'='*50}\n")
+    print("="*50 + "\n")
 
 if __name__ == "__main__":
     print("Running Log Anomaly Detector...")
     failed, successful = parse_log(LOG_FILE)
     alerts = detect_brute_force(failed)
     generate_report(alerts, successful)
-```

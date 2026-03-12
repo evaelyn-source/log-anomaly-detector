@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-03-12T02:29:41.978906",
+  "summary": {
+    "total_alerts": 2,
+    "successful_logins": 1
+  },
+  "alerts": [
+    {
+      "type": "BRUTE_FORCE",
+      "ip": "192.168.1.50",
+      "attempts": 6,
+      "targeted_users": [
+        "root",
+        "admin"
+      ],
+      "severity": "HIGH"
+    },
+    {
+      "type": "BRUTE_FORCE",
+      "ip": "203.0.113.7",
+      "attempts": 5,
+      "targeted_users": [
+        "deploy"
+      ],
+      "severity": "HIGH"
+    }
+  ],
+  "successful_logins": [
+    {
+      "user": "john",
+      "ip": "10.0.0.5",
+      "time": "Mar 10 08:30:01"
+    }
+  ]
+}
