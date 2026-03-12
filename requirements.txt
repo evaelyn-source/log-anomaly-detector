@@ -1,0 +1,4 @@
+**`requirements.txt`:**
+```
+# No external libraries needed for base version
+# Optional: pip install pandas matplotlib for visualization extension
