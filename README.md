@@ -18,7 +18,8 @@ cd log-anomaly-detector
 python detector.py
 
 ## 📸 Screenshot
-[add terminal screenshot here]
+https://github.com/evaelyn-source/log-anomaly-detector/blob/main/screenshots/terminal_output.png?raw=true<img width="1152" height="648" alt="image" src="https://github.com/user-attachments/assets/a646698a-f6fe-49b5-892a-7af89d52c0a1" />
+
 
 ## 🔭 Future Improvements
 - [ ] Add IP geolocation lookup
